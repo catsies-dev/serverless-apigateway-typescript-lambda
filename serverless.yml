@@ -1,14 +1,14 @@
-service: simple-lambda-test
+service: simplelambdatest
 plugins:
   - serverless-plugin-typescript
-  - serverless-offline
-  - serverless-localstack
+  # - serverless-offline
+  # - serverless-localstack
 provider:
   name: aws
   runtime: nodejs12.x
-  region: eu-west-1
+  region: us-east-1
   logRetentionInDays: 3
-  stage: dev
+  stage: local
   versionFunctions: false
   environment:
     ENV_VAR_INSIDE_LAMBDA: ${self:custom.envVar}
@@ -24,9 +24,10 @@ functions:
           
 custom:
   envVar: ${env:ENV_VAR_WHEN_RUNNING_SLS,"default-value"}
-  localstack:
-    stages: 
-      - local
-    host: http://nuc
-  serverless-offline:
-    port: 4000
+  # localstack:
+    # autostart: true
+    # stages: 
+    #   - local
+    # host: http://nuc
+  # serverless-offline:
+  #   port: 4000
