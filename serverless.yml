@@ -1,7 +1,7 @@
 service: simplelambdatest
 plugins:
   - serverless-plugin-typescript
-  # - serverless-offline
+  - serverless-offline
   # - serverless-localstack
 provider:
   name: aws
